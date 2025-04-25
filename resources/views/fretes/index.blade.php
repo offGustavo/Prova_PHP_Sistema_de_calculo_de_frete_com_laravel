@@ -1,10 +1,7 @@
-<!-- resources/views/fretes/index.blade.php -->
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Lista de Fretes</title>
-</head>
-<body>
+<!-- vim: ft=php -->
+@extends('layouts.app')
+
+@section('content')
     <h1>Fretes Cadastrados</h1>
     <table border="1">
         <thead>
@@ -23,11 +20,11 @@
                     <td>{{ $frete->peso }}</td>
                     <td>{{ $frete->distancia }}</td>
                     <td>{{ $frete->tipo_frete }}</td>
-                    <td>{{ $frete->valor_total }}</td>
+                    <td>R$ {{ number_format($frete->valor_total, 2, ',', '.') }}</td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+@endsection
 
+kjk

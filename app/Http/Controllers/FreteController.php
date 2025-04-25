@@ -22,46 +22,71 @@ class FreteController
 	 */
 	public function create()
 	{
-		//
-	}
+        return view('fretes.create');
+    }
 
 	/**
-	 * Store a newly created resource in storage.
-	 */
-	public function store(Request $request)
-	{
-		//
-	}
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'nome_cliente' => 'required',
+            'peso' => 'required|numeric',
+            'distancia' => 'required|numeric',
+            'tipo_frete' => 'required|in:normal,expresso',
+        ]);
 
-	/**
-	 * Display the specified resource.
-	 */
-	public function show(string $id)
-	{
-		//
-	}
+        $valor_total = 0;
 
-	/**
-	 * Show the form for editing the specified resource.
-	 */
-	public function edit(string $id)
-	{
-		//
-	}
+        if ($request->tipo_frete === 'normal') {
+            $valor_total = ($request->peso * 0.50) + ($request->distancia * 0.10);
+        } else {
+            $valor_total = ($request->peso * 1.00) + ($request->distancia * 0.25);
+        }
 
-	/**
-	 * Update the specified resource in storage.
-	 */
-	public function update(Request $request, string $id)
-	{
-		//
-	}
+        $frete = Frete::create([
+            'nome_cliente' => $request->nome_cliente,
+            'peso' => $request->peso,
+            'distancia' => $request->distancia,
+            'tipo_frete' => $request->tipo_frete,
+            'valor_total' => $valor_total,
+        ]);
 
-	/**
-	 * Remove the specified resource from storage.
-	 */
-	public function destroy(string $id)
-	{
-		//
-	}
+        return view('fretes.resultado', compact('frete'));
+    }
+    
+    
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
 }
