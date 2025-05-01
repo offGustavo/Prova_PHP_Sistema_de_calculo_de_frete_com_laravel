@@ -4,7 +4,7 @@
 <div>
     <h1>Fretes Cadastrados</h1>
     <table border="1" cellpadding="10" cellspacing="0" style="width: 100%; border-collapse: collapse;">
-        <thead style="background-color: #f2f2f2;">
+        <thead style="background-color: #c53030; color: white;">
             <tr>
                 <th>Cliente</th>
                 <th>Peso</th>
@@ -25,8 +25,8 @@
                     {{ number_format($frete->distancia, 1, ',', '.') }} km
                 </td>
                 <td style="text-align: center;">
-                    @if ($frete->tipo_frete == 'Expresso')
-                    <span style="color: green; font-weight: bold;">{{ $frete->tipo_frete }}</span>
+                    @if ($frete->tipo_frete == 'expresso')
+                    <span style="color: red; font-weight: bold;">{{ $frete->tipo_frete }}</span>
                     @else
                     {{ $frete->tipo_frete }}
                     @endif
