@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div style="display: flex; justify-content: center; align-items: center; padding-top: 20px; height: 100%;">

@@ -1,5 +1,5 @@
 <!-- vim: ft=php -->
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
