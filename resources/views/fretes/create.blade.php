@@ -1,28 +1,38 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
-<div style="display: flex; justify-content: center; align-items: center; padding-top: 20px; height: 100%;">
-    <div style="background-color: #fff; padding: 24px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); width: 100%; max-width: 400px;">
-        <h2 style="text-align: center; margin-bottom: 20px;">Cadastro de Frete</h2>
-        <form action="{{ route('frete.store') }}" method="POST" style="display: flex; flex-direction: column; gap: 12px;">
+
+<div class="flex justify-center items-center pt-5 min-h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h2 class="text-center text-2xl font-semibold mb-5">Cadastro de Frete</h2>
+
+        <form action="{{ route('fretes.store') }}" method="POST" class="flex flex-col gap-3">
             @csrf
 
-            <label style="font-weight: bold;">Nome do Cliente:</label>
-            <input type="text" name="nome_cliente" required style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            <div>
+                <label class="font-semibold block mb-1">Nome do Cliente:</label>
+                <input type="text" name="nome_cliente" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
 
-            <label style="font-weight: bold;">Peso (kg):</label>
-            <input type="number" name="peso" step="0.01" required style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            <div>
+                <label class="font-semibold block mb-1">Peso (kg):</label>
+                <input type="number" name="peso" step="0.01" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
 
-            <label style="font-weight: bold;">Distância (km):</label>
-            <input type="number" name="distancia" step="0.01" required style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            <div>
+                <label class="font-semibold block mb-1">Distância (km):</label>
+                <input type="number" name="distancia" step="0.01" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
 
-            <label style="font-weight: bold;">Tipo de Frete:</label>
-            <select name="tipo_frete" required style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
-                <option value="normal">Normal</option>
-                <option value="expresso">Expresso</option>
-            </select>
+            <div>
+                <label class="font-semibold block mb-1">Tipo de Frete:</label>
+                <select name="tipo_frete" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="normal">Normal</option>
+                    <option value="expresso">Expresso</option>
+                </select>
+            </div>
 
-            <button type="submit" style="padding: 10px; background-color: #c53030; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">
+            <button type="submit" class="mt-4 py-2 px-4 bg-red-600 text-white font-bold rounded-md hover:bg-red-700 transition duration-200">
                 Calcular
             </button>
         </form>
