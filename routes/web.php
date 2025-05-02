@@ -19,8 +19,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/fretes', [FreteController::class, 'index'])->name('fretes.index');
-    Route::get('/fretes/create', [FreteController::class, 'create'])->name('fretes.create');
     Route::post('/fretes', [FreteController::class, 'store'])->name('fretes.store');
+    Route::get('/fretes/create', [FreteController::class, 'create'])->name('fretes.create');
     Route::get('/frete/resultado/{id}', [FreteController::class, 'resultado'])->name('frete.resultado');
     Route::get('/fretes/exportar', [FreteController::class, 'exportPdf'])->name('fretes.exportar');
 });
