@@ -6,6 +6,17 @@ use App\Http\Controllers\FreteController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\FreteApiController;
+
+Route::get('/api/fretes', [FreteApiController::class, 'index']);
+
+Route::get('/api/teste', function () {
+    return response()->json(['ok' => true]);
+});
+
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });

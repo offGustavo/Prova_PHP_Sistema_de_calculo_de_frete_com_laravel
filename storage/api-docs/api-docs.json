@@ -1,0 +1,32 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API de Fretes",
+        "description": "Documentação da API do sistema de controle de fretes",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/fretes": {
+            "get": {
+                "summary": "Listar fretes com filtros",
+                "operationId": "80f1fdda9ec66f909075f9e38ca8f919",
+                "parameters": [
+                    {
+                        "name": "nome_cliente",
+                        "in": "query",
+                        "description": "Filtrar pelo nome do cliente",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de fretes"
+                    }
+                }
+            }
+        }
+    }
+}
